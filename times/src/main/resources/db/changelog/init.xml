@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+      http://www.liquibase.org/xml/ns/pro 
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">  
+      
+    <changeSet id="1" author="joaopedro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela clube">
+            <not>
+                <tableExists tableName="clube"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="clube">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_clube"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="serie" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ranking_iffhs" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ano_fundacao" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Aqui poderíamos referenciar os jogadores desse clube -->
+            <!-- Todavia será mais interessante realizar essa operação pelo Java
+                da mesma forma que o professor passou o exemplo de artistas de uma gravadora -->
+        </createTable>
+
+        <addAutoIncrement tableName="clube" columnName="id" columnDataType="int" incrementBy="1" startWith="1"/>
+    </changeSet>
+
+    <changeSet id="2" author="joaopedro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela jogador">
+            <not>
+                <tableExists tableName="jogador"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="jogador">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_jogador"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="posicao" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idade" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Aqui poderíamos referenciar o id do clube para cada jogador -->
+            <!-- <column name="clube_id" type="int">
+                <constraints foreignKeyName="fk_jogador_clube"
+                            referencedTableName="clube"
+                            referencedColumnNames="id"/>
+            </column> -->
+        </createTable>
+
+        <addAutoIncrement tableName="jogador" columnName="id" columnDataType="int" incrementBy="1" startWith="1"/>
+    </changeSet>
+
+</databaseChangeLog> 

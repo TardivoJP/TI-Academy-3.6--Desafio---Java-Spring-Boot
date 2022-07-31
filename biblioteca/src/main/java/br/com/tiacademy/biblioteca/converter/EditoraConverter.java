@@ -2,12 +2,12 @@ package br.com.tiacademy.biblioteca.converter;
 
 import org.springframework.stereotype.Component;
 
-import br.com.tiacademy.biblioteca.core.crud.CrudConverter;
+import br.com.tiacademy.biblioteca.core.crud.BibliotecaConverter;
 import br.com.tiacademy.biblioteca.domain.Editora;
 import br.com.tiacademy.biblioteca.dto.EditoraDTO;
 
 @Component
-public class EditoraConverter implements CrudConverter<Editora, EditoraDTO> {
+public class EditoraConverter implements BibliotecaConverter<Editora, EditoraDTO> {
 
     @Override
     public EditoraDTO entidadeParaDto(Editora entity) {

@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-public abstract class CrudController<T extends BibliotecaDomain<ID>, D, ID> {
+public abstract class BibliotecaController<T extends BibliotecaDomain<ID>, D, ID> {
     
     @Autowired
     protected BibliotecaService<T, ID> service;
 
     @Autowired
-    protected CrudConverter<T, D> converter;
+    protected BibliotecaConverter<T, D> converter;
 
     @GetMapping
     public ResponseEntity<Page<D>> paginado(Pageable pageable){

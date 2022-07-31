@@ -1,6 +1,6 @@
 package br.com.tiacademy.biblioteca.core.crud;
 
-public interface CrudConverter<T, D> {
+public interface BibliotecaConverter<T, D> {
     
     D entidadeParaDto(T entity);
 

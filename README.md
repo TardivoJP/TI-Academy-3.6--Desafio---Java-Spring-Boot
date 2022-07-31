@@ -17,6 +17,7 @@ Posteriormente conforme o desenvolvimento das aulas e próximos desafios será i
 ### Estrutura do repositório
 
 &rarr; 📁 **biblioteca** &rarr; Aplicação gerenciadora do banco de dados
+
 &rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização da aplicação.
 
 ### 💡 Importante

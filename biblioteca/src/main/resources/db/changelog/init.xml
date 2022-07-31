@@ -52,9 +52,7 @@
                 <constraints nullable="false"/>
             </column>
             <!-- Falecimento pode ser nulo para atores contemporâneos vivos -->
-            <column name="ano_falecimento" type="int">
-                <constraints nullable="false"/>
-            </column>
+            <column name="ano_falecimento" type="int"/>
 
             <!-- Aqui poderíamos referenciar o id da editora para cada autor -->
             <!-- <column name="editora_id" type="int">

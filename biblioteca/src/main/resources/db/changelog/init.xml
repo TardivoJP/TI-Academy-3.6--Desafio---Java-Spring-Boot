@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<databaseChangeLog
+   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+      http://www.liquibase.org/xml/ns/pro 
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">  
+      
+    <changeSet id="1" author="joaopedro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela editora">
+            <not>
+                <tableExists tableName="editora"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="editora">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_editora"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="ano_fundacao" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Aqui poderíamos referenciar autores e livros dessa editora -->
+            <!-- Todavia será mais interessante realizar essa operação pelo Java
+                da mesma forma que o professor passou o exemplo de artistas de uma gravadora -->
+        </createTable>
+
+        <addAutoIncrement tableName="editora" columnName="id" columnDataType="int" incrementBy="1" startWith="1"/>
+    </changeSet>
+
+    <changeSet id="2" author="joaopedro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela autor">
+            <not>
+                <tableExists tableName="autor"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="autor">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_autor"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="ano_nascimento" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <!-- Falecimento pode ser nulo para atores contemporâneos vivos -->
+            <column name="ano_falecimento" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Aqui poderíamos referenciar o id da editora para cada autor -->
+            <!-- <column name="editora_id" type="int">
+                <constraints foreignKeyName="fk_autor_editora"
+                            referencedTableName="editora"
+                            referencedColumnNames="id"/>
+            </column> -->
+
+            <!-- Aqui poderíamos referenciar os livros desse autor -->
+            <!-- Todavia será mais interessante realizar essa operação pelo Java
+                da mesma forma que o professor passou o exemplo de artistas de uma gravadora -->
+        </createTable>
+
+        <addAutoIncrement tableName="autor" columnName="id" columnDataType="int" incrementBy="1" startWith="1"/>
+    </changeSet>
+
+    <changeSet id="3" author="joaopedro">
+        <preConditions onFail="MARK_RAN" onFailMessage="Já existe a tabela livro">
+            <not>
+                <tableExists tableName="livro"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="livro">
+            <column name="id" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_livro"/>
+            </column>
+            <column name="nome" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="genero" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ano_lancamento" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qtd_paginas" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Aqui poderíamos referenciar os ids do autor e da editora para cada livro -->
+            <!-- <column name="autor_id" type="int">
+                <constraints nullable="false"
+                            foreignKeyName="fk_livro_autor"
+                            referencedTableName="autor"
+                            referencedColumnNames="id"/>
+            </column>
+            <column name="editora_id" type="int">
+                <constraints nullable="false"
+                            foreignKeyName="fk_livro_editora"
+                            referencedTableName="editora"
+                            referencedColumnNames="id"/>
+            </column> -->
+        </createTable>
+
+        <addAutoIncrement tableName="livro" columnName="id" columnDataType="int" incrementBy="1" startWith="1"/>
+    </changeSet>
+
+</databaseChangeLog> 

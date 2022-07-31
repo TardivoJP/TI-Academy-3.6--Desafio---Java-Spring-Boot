@@ -23,3 +23,5 @@ Posteriormente conforme o desenvolvimento das aulas e próximos desafios será i
 ### 💡 Importante
 
 Favor verificar e modificar o arquivo **`application.properties`** situado em **`biblioteca\src\main\resources`** conforme necessário para acessar/criar um novo banco de dados para confirmar o funcionamento da aplicação.
+
+Liquibase **dbchangelog.xsd** e **liquibase-pro.xsd** utilizadas na versão 4.3 pois outras como 4.12 ou 4.14 estavam causando erros de compilação da aplicação.

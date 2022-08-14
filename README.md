@@ -4,11 +4,14 @@ Duas possibilidades de projeto realizados com base nos parâmetros estipulados p
 
 ## Estrutura do repositório
 
-&rarr; 📁 **biblioteca** &rarr; Aplicação gerenciadora do banco de dados de autores, editoras e livros
+&rarr; 📁 **atividade-01** &rarr; Pasta com a primeira atividade
+------&rarr; 📁 **biblioteca** &rarr; Aplicação gerenciadora do banco de dados de autores, editoras e livros
+------&rarr; 📁 **times** &rarr; Aplicação gerenciadora do banco de dados de jogadores e clubes de futebol
+------&rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização de cada aplicação.
 
-&rarr; 📁 **times** &rarr; Aplicação gerenciadora do banco de dados de jogadores e clubes de futebol
-
-&rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização de cada aplicação.
+&rarr; 📁 **atividade-02** &rarr; Pasta com a segunda atividade
+------&rarr; 📁 **times** &rarr; Adição de relacionamento entre as tabelas e diversas rotas de consulta.
+------&rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização da aplicação.
 
 ## 1- Base de Dados de Jogadores e Clubes de Futebol
 
@@ -17,12 +20,17 @@ Trata-se de um banco de dados com aplicação para um serviço de estatísticas 
 - `1 Jogador:` Que possui id, nome, posição e idade.
 - `2 Clube:` Que possui id, nome, série, ranking IFFHS (Federação Internacional de História e Estatísticas do Futebol) e ano de fundação.
 
-Posteriormente conforme o desenvolvimento das aulas e próximos desafios será implementada uma estrutura relacional entre as tabelas.
+Relacionamento Many to One entre Jogador e Clubes:
 
 - `1 Jogador:` Possui uma clube.
 - `2 Clube:` Possui vários jogadores.
 
 Uma possibilidade adicional seria a implicamentação de tabelas para as diversas federações de Futebol no mundo e as diversas competições como Libertadores, Copa do Brasil, Champions League, etc.
+
+Além disso existem várias consultas implementadas:
+
+- `1 Jogador:` Consulta por nome, posição ou idade, customizável própria rota de acesso através de Path Variables.
+- `2 Clube:` Consulta por nome, serie, rank ou ano de fundação customizável própria rota de acesso através de Path Variables.
 
 ## 2- Base de Dados de Autores, Editoras e Livros
 
@@ -32,7 +40,7 @@ Trata-se de um banco de dados com aplicação para uma biblioteca com as seguint
 - `2 Editora:` Que possui id, nome e ano de fundação.
 - `3 Livro:` Que possui id, nome, genero, ano de lançamento e quantidade de páginas.
 
-Posteriormente conforme o desenvolvimento das aulas e próximos desafios será implementada uma estrutura relacional entre as tabelas.
+Implementação desta base de dados realizada apenas para a atividade 1, logo não existem estruturas relacionais ou consultas, porém uma possibilidade seria:
 
 - `1 Autor:` Possui vários livros e uma editora.
 - `2 Editora:` Possui vários autores e vários livros.

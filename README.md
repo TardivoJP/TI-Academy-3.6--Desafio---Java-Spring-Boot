@@ -5,13 +5,20 @@ Duas possibilidades de projeto realizados com base nos parâmetros estipulados p
 ## Estrutura do repositório
 
 &rarr; 📁 **atividade-01** &rarr; Pasta com a primeira atividade
+
 ------&rarr; 📁 **biblioteca** &rarr; Aplicação gerenciadora do banco de dados de autores, editoras e livros
+
 ------&rarr; 📁 **times** &rarr; Aplicação gerenciadora do banco de dados de jogadores e clubes de futebol
+
 ------&rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização de cada aplicação.
 
+
 &rarr; 📁 **atividade-02** &rarr; Pasta com a segunda atividade
+
 ------&rarr; 📁 **times** &rarr; Adição de relacionamento entre as tabelas e diversas rotas de consulta.
+
 ------&rarr; 📁 **exemploBancoDeDados** &rarr; Pasta com arquivos .ibd e screenshots do Postman a título de exemplo de uma utilização da aplicação.
+
 
 ## 1- Base de Dados de Jogadores e Clubes de Futebol
 
